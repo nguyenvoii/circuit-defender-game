@@ -1,0 +1,54 @@
+{
+  "name": "Chạy Trên Dây Điện - Circuit Defender",
+  "description": "Trò chơi platformer siêu nhẹ: nhân vật là electron chạy trên dây điện, tránh vật cản để duy trì dòng điện. Tự động chạy, người chơi nhảy hoặc trượt xuống. Vật cản: cách điện, đoản mạch, cầu dao. Thu thập electron (+ năng lượng), pin (thêm mạng). Chơi không giới hạn, ghi điểm cao nhất.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"],
+  "features": [
+    "Auto-running platformer gameplay",
+    "Jump and slide mechanics",
+    "Multiple obstacle types (insulator, short circuit, circuit breaker)",
+    "Collectible items (electrons, batteries)",
+    "Combo system for consecutive obstacle avoidance",
+    "Neon/electric visual theme",
+    "Sound effects using Web Audio API",
+    "Local high score storage",
+    "Responsive design for mobile and desktop",
+    "Canvas 2D rendering",
+    "Touch and keyboard controls"
+  ],
+  "controls": {
+    "keyboard": {
+      "jump": ["ArrowUp", "Space", "W"],
+      "slide": ["ArrowDown", "S"],
+      "pause": ["Escape"]
+    },
+    "touch": {
+      "jump": "Tap upper half of screen",
+      "slide": "Tap lower half of screen"
+    }
+  },
+  "obstacles": {
+    "insulator": {
+      "damage": "25% energy",
+      "color": "#8b4513"
+    },
+    "short_circuit": {
+      "damage": "-1 life",
+      "color": "#ff6b35"
+    },
+    "circuit_breaker": {
+      "damage": "-35% energy and -1 life",
+      "color": "#4a5568"
+    }
+  },
+  "collectibles": {
+    "electron": {
+      "effect": "+15 energy, +25 points",
+      "color": "#00ff88"
+    },
+    "battery": {
+      "effect": "+1 life, +50 points",
+      "color": "#ffd700"
+    }
+  }
+}
