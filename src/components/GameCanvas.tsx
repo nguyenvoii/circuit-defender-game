@@ -363,13 +363,14 @@ const GameCanvas = ({ onGameOver, onPause }: GameCanvasProps) => {
         obs.x -= gameSpeed;
 
         // Collision detection
-        if (!obs.passed && !game.invincible) {
+        if (!obs.passed && game.invincible <= 0) {
+          const electronRadius = game.electron.isSliding ? 12 : 15;
           const electronHeight = game.electron.isSliding ? 20 : 30;
-          const electronY = game.electron.isSliding ? game.electron.y + 10 : game.electron.y - 15;
+          const electronY = game.electron.y - electronHeight / 2;
 
           if (
-            game.electron.x + 15 > obs.x &&
-            game.electron.x - 15 < obs.x + obs.width &&
+            game.electron.x + electronRadius > obs.x &&
+            game.electron.x - electronRadius < obs.x + obs.width &&
             electronY + electronHeight > obs.y &&
             electronY < obs.y + obs.height
           ) {
